@@ -8,10 +8,14 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
+            "env":{
+                "VIP_PORT": "8094",
+            },
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/dist/index.js",
+            // "preLaunchTask": "tsc: build - tsconfig.json",
+            "program": "${workspaceFolder}/src/index.ts",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ]
