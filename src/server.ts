@@ -3,6 +3,7 @@ import * as helmet from 'helmet';
 import * as bodyParser from 'body-parser';
 import * as http from 'http';
 import { myRouter } from './router';
+import { port } from './config';
 
 export class Server {
     public app: express.Application;
@@ -13,8 +14,8 @@ export class Server {
         this.initMiddlewares();
         this.initRoutes();
         this.server = http.createServer(this.app);
-        this.server.listen(5000, () => {
-            console.log('Server running on port 5000');
+        this.server.listen(port, () => {
+            console.log(`Server running on port ${port}`);
         });
         console.log('constructor finished!');
     }
@@ -41,7 +42,7 @@ export class Server {
     }
 
     private initRoutes() {
-        this.app.use('/api/try', myRouter);
+        this.app.use('/api/vips', myRouter);
     }
 
 }
